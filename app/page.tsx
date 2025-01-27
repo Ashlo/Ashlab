@@ -1,13 +1,14 @@
-import { ArrowRight, BarChart2, Database, Brain, Menu } from 'lucide-react';
+import { ArrowRight, BarChart2, Database, Brain, Menu, Rocket, Code, Zap } from 'lucide-react';
 import { Caveat } from 'next/font/google';
 import Image from 'next/image';
 import DataArchitectureDiagram from '@/components/DataArchitectureDiagram';
+import TechStackSlider from '@/components/TechStackSlider';
 
 const caveat = Caveat({ subsets: ['latin'] });
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#FAFAFA] dark:bg-[#121212]">
+    <div className="min-h-screen bg-[#121212]">
       {/* Header */}
       <header className="fixed top-0 w-full z-50 bg-white/80 dark:bg-black/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -66,11 +67,9 @@ export default function Home() {
             <h1 className={`${caveat.className} text-5xl sm:text-7xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent`}>
               From Raw Data to Rocket Fuel
             </h1>
-            <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 font-light max-w-2xl">
+            <p className="text-xl sm:text-2xl text-gray-400 font-light max-w-2xl leading-relaxed">
               Build Scalable Data Pipelines, Unlock AI Insights, and Power Your Startup's Growth.
             </p>
-            
-            {/* Add the diagram component */}
             <DataArchitectureDiagram />
           </main>
         </section>
@@ -170,44 +169,124 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Why Choose Us Section */}
-        <section className="bg-black/[.02] dark:bg-white/[.02] py-20">
-          <div className="max-w-4xl mx-auto px-8">
-            <h2 className="text-3xl font-bold mb-12 text-center">Why Choose Us</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="p-6 bg-white dark:bg-black/20 rounded-lg">
-                <h3 className="text-xl font-semibold mb-4">🚀 Startup DNA</h3>
-                <p>We speak your language. No enterprise BS—just agile solutions that scale as fast as you do.</p>
+        {/* Enhanced Why Choose Us Section */}
+        <section className="py-20 bg-black/[.02] dark:bg-white/[.02]">
+          <div className="max-w-6xl mx-auto px-8">
+            <h2 className={`${caveat.className} text-4xl font-bold mb-16 text-center bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent`}>
+              Why Startups Choose Us
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* Card 1 */}
+              <div className="p-8 bg-[#1A1A1A] rounded-2xl border border-gray-800 hover:border-purple-500/50 transition-all duration-300">
+                <Rocket className="w-12 h-12 mb-6 text-purple-500" />
+                <h3 className={`${caveat.className} text-2xl font-semibold mb-4 text-white`}>
+                  Startup DNA
+                </h3>
+                <p className="text-gray-400 leading-relaxed">
+                  We speak your language. No enterprise bloat—just agile, scalable solutions that grow with your startup.
+                </p>
               </div>
-              <div className="p-6 bg-white dark:bg-black/20 rounded-lg">
-                <h3 className="text-xl font-semibold mb-4">🔮 AI-Ready, Not AI-Hype</h3>
-                <p>Build pipelines today that seamlessly integrate machine learning tomorrow.</p>
+
+              {/* Card 2 */}
+              <div className="p-8 bg-[#1A1A1A] rounded-2xl border border-gray-800 hover:border-purple-500/50 transition-all duration-300">
+                <Code className="w-12 h-12 mb-6 text-purple-500" />
+                <h3 className={`${caveat.className} text-2xl font-semibold mb-4 text-white`}>
+                  Modern Tech Stack
+                </h3>
+                <p className="text-gray-400 leading-relaxed">
+                  Cloud-native architecture using cutting-edge tools like dbt, Airflow, and modern data warehouses.
+                </p>
+              </div>
+
+              {/* Card 3 */}
+              <div className="p-8 bg-[#1A1A1A] rounded-2xl border border-gray-800 hover:border-purple-500/50 transition-all duration-300">
+                <Zap className="w-12 h-12 mb-6 text-purple-500" />
+                <h3 className={`${caveat.className} text-2xl font-semibold mb-4 text-white`}>
+                  Quick Time-to-Value
+                </h3>
+                <p className="text-gray-400 leading-relaxed">
+                  Get your first pipeline running in weeks, not months. Iterative delivery with clear ROI milestones.
+                </p>
+              </div>
+
+              {/* Card 4 */}
+              <div className="p-8 bg-[#1A1A1A] rounded-2xl border border-gray-800 hover:border-purple-500/50 transition-all duration-300">
+                <Brain className="w-12 h-12 mb-6 text-purple-500" />
+                <h3 className={`${caveat.className} text-2xl font-semibold mb-4 text-white`}>
+                  AI-Ready Architecture
+                </h3>
+                <p className="text-gray-400 leading-relaxed">
+                  Future-proof your data stack. Build pipelines today that seamlessly integrate with AI tomorrow.
+                </p>
+              </div>
+
+              {/* Card 5 */}
+              <div className="p-8 bg-[#1A1A1A] rounded-2xl border border-gray-800 hover:border-purple-500/50 transition-all duration-300">
+                <BarChart2 className="w-12 h-12 mb-6 text-purple-500" />
+                <h3 className={`${caveat.className} text-2xl font-semibold mb-4 text-white`}>
+                  Investor-Ready Analytics
+                </h3>
+                <p className="text-gray-400 leading-relaxed">
+                  Dashboards and metrics that tell your growth story and impress investors during due diligence.
+                </p>
+              </div>
+
+              {/* Card 6 */}
+              <div className="p-8 bg-[#1A1A1A] rounded-2xl border border-gray-800 hover:border-purple-500/50 transition-all duration-300">
+                <Database className="w-12 h-12 mb-6 text-purple-500" />
+                <h3 className={`${caveat.className} text-2xl font-semibold mb-4 text-white`}>
+                  Cost Optimization
+                </h3>
+                <p className="text-gray-400 leading-relaxed">
+                  Smart architecture decisions that keep your cloud costs low while maintaining scalability.
+                </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* CTA Section */}
+        {/* Tech Stack Section - After Why Choose Us */}
+        <section className="py-20 bg-black/30">
+          <div className="max-w-6xl mx-auto px-8">
+            <div className="text-center mb-12">
+              <h2 className={`${caveat.className} text-4xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent`}>
+                Built with Modern Tech
+              </h2>
+              <p className="text-xl text-gray-400">
+                Enterprise-grade tools, startup-friendly implementation
+              </p>
+            </div>
+            <TechStackSlider />
+          </div>
+        </section>
+
+        {/* CTA Section with updated typography */}
         <section className="py-20">
           <div className="max-w-4xl mx-auto px-8 text-center">
-            <h2 className="text-3xl font-bold mb-6">Stop Guessing. Start Scaling.</h2>
-            <p className="text-xl mb-8">Book a free data audit: We'll map your current stack and show you the fastest path to ROI.</p>
-            <a className="inline-flex items-center justify-center gap-2 rounded-full bg-foreground text-background px-8 py-4 font-medium hover:bg-[#383838] dark:hover:bg-[#ccc] transition-colors"
-               href="#contact">
+            <h2 className={`${caveat.className} text-4xl font-bold mb-6 text-white`}>
+              Stop Guessing. Start Scaling.
+            </h2>
+            <p className="text-xl mb-8 text-gray-400 leading-relaxed">
+              Book a free data audit: We'll map your current stack and show you the fastest path to ROI.
+            </p>
+            <a 
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 font-medium hover:opacity-90 transition-all duration-200"
+              href="#contact"
+            >
               Schedule Your Free Consultation
               <ArrowRight className="w-4 h-4" />
             </a>
           </div>
         </section>
 
-        {/* Footer - Modern minimal */}
-        <footer className="border-t border-gray-200 dark:border-gray-800 bg-white/50 dark:bg-black/50 backdrop-blur-sm">
+        {/* Footer with consistent styling */}
+        <footer className="border-t border-gray-800 bg-black/50">
           <div className="max-w-6xl mx-auto px-8 py-12">
             <div className="text-center">
-              <p className={`${caveat.className} text-2xl font-semibold mb-2`}>
+              <p className={`${caveat.className} text-2xl font-semibold mb-2 text-white`}>
                 Data Engineering for Startups That Mean Business.
               </p>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-gray-400">
                 Less Chaos. More Clarity. Ready for AI.
               </p>
             </div>
