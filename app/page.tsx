@@ -1,6 +1,7 @@
 import { ArrowRight, BarChart2, Database, Brain, Menu } from 'lucide-react';
 import { Caveat } from 'next/font/google';
 import Image from 'next/image';
+import DataArchitectureDiagram from '@/components/DataArchitectureDiagram';
 
 const caveat = Caveat({ subsets: ['latin'] });
 
@@ -19,6 +20,7 @@ export default function Home() {
                 width={32}
                 height={32}
                 className="w-8 h-8"
+                priority
               />
               <span className={`${caveat.className} text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent`}>
                 Ashlab
@@ -58,49 +60,18 @@ export default function Home() {
 
       {/* Add margin-top to account for fixed header */}
       <div className="pt-16">
-        {/* Hero Section - More playful styling */}
+        {/* Hero Section */}
         <section className="grid grid-rows-[1fr] items-center justify-items-center p-8 pb-20 gap-16 sm:p-20">
-          <main className="flex flex-col gap-8 items-center sm:items-start max-w-4xl">
-            <div className="text-center sm:text-left">
-              <h1 className={`${caveat.className} text-5xl sm:text-7xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent`}>
-                From Raw Data to Rocket Fuel
-              </h1>
-              <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 font-light">
-                Build Scalable Data Pipelines, Unlock AI Insights, and Power Your Startup's Growth.
-              </p>
-            </div>
-
-            <div className="bg-white/50 dark:bg-white/[.03] backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-800">
-              <p className={`${caveat.className} text-2xl mb-6`}>
-                For startups drowning in spreadsheets or struggling to scale:
-                We design, build, and automate data pipelines so you can focus on your product, not plumbing.
-              </p>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3">
-                  <span className="text-purple-500 text-xl">✦</span>
-                  <span>Data Engineering: Cloud-native pipelines (AWS/GCP/Azure), ETL automation, and warehousing.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-purple-500 text-xl">✦</span>
-                  <span>Data Modeling: Clean schemas for analytics, forecasting, and investor-ready reporting.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-purple-500 text-xl">✦</span>
-                  <span>AI-Ready Infrastructure: Future-proof your stack for machine learning and predictive tools.</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="flex gap-4 items-center flex-col sm:flex-row">
-              <a className="rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 text-lg font-medium hover:opacity-90 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-                 href="#contact">
-                Schedule Free Consultation
-              </a>
-              <a className="rounded-full border-2 border-purple-600 px-8 py-4 text-lg font-medium hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-all duration-200"
-                 href="#services">
-                Explore Services
-              </a>
-            </div>
+          <main className="flex flex-col gap-8 items-center max-w-4xl text-center">
+            <h1 className={`${caveat.className} text-5xl sm:text-7xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent`}>
+              From Raw Data to Rocket Fuel
+            </h1>
+            <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 font-light max-w-2xl">
+              Build Scalable Data Pipelines, Unlock AI Insights, and Power Your Startup's Growth.
+            </p>
+            
+            {/* Add the diagram component */}
+            <DataArchitectureDiagram />
           </main>
         </section>
 
@@ -109,40 +80,60 @@ export default function Home() {
           <div className="max-w-6xl mx-auto px-8">
             <h2 className={`${caveat.className} text-4xl font-bold mb-12 text-center`}>What We Deliver</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="p-6 bg-white/50 dark:bg-white/[.03] backdrop-blur-sm rounded-2xl border border-gray-100 dark:border-gray-800 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+              <div className="p-6 bg-white/50 dark:bg-white/[.03] backdrop-blur-sm rounded-2xl border border-gray-100 dark:border-gray-800 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 hover:bg-gradient-to-b hover:from-purple-50 hover:to-pink-50 dark:hover:from-purple-900/20 dark:hover:to-pink-900/20">
                 <Database className="w-12 h-12 mb-4 text-purple-600" />
                 <h3 className={`${caveat.className} text-2xl font-semibold mb-4`}>Startup Data Engineering</h3>
                 <ul className="space-y-2">
                   <li className="flex items-center gap-2">
-                    <span className="text-purple-500">•</span>
+                    <span className="text-purple-500">✦</span>
                     <span>Scalable ETL/ELT pipelines</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-purple-500">•</span>
+                    <span className="text-purple-500">✦</span>
                     <span>Cost-effective cloud architectures</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-purple-500">•</span>
+                    <span className="text-purple-500">✦</span>
                     <span>Automated monitoring & CI/CD</span>
                   </li>
                 </ul>
               </div>
-              <div className="p-6 bg-white dark:bg-black/20 rounded-lg">
-                <BarChart2 className="w-10 h-10 mb-4" />
-                <h3 className="text-xl font-semibold mb-4">Analytics & Decision-Making</h3>
+
+              <div className="p-6 bg-white/50 dark:bg-white/[.03] backdrop-blur-sm rounded-2xl border border-gray-100 dark:border-gray-800 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 hover:bg-gradient-to-b hover:from-purple-50 hover:to-pink-50 dark:hover:from-purple-900/20 dark:hover:to-pink-900/20">
+                <BarChart2 className="w-12 h-12 mb-4 text-purple-600" />
+                <h3 className={`${caveat.className} text-2xl font-semibold mb-4`}>Analytics & Decision-Making</h3>
                 <ul className="space-y-2">
-                  <li>• Intuitive schemas for SaaS metrics</li>
-                  <li>• Investor-ready dashboards</li>
-                  <li>• Financial forecasting models</li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-purple-500">✦</span>
+                    <span>Intuitive schemas for SaaS metrics</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-purple-500">✦</span>
+                    <span>Investor-ready dashboards</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-purple-500">✦</span>
+                    <span>Financial forecasting models</span>
+                  </li>
                 </ul>
               </div>
-              <div className="p-6 bg-white dark:bg-black/20 rounded-lg">
-                <Brain className="w-10 h-10 mb-4" />
-                <h3 className="text-xl font-semibold mb-4">AI Integration</h3>
+
+              <div className="p-6 bg-white/50 dark:bg-white/[.03] backdrop-blur-sm rounded-2xl border border-gray-100 dark:border-gray-800 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 hover:bg-gradient-to-b hover:from-purple-50 hover:to-pink-50 dark:hover:from-purple-900/20 dark:hover:to-pink-900/20">
+                <Brain className="w-12 h-12 mb-4 text-purple-600" />
+                <h3 className={`${caveat.className} text-2xl font-semibold mb-4`}>AI Integration</h3>
                 <ul className="space-y-2">
-                  <li>• ML-ready data preparation</li>
-                  <li>• Custom AI microservices</li>
-                  <li>• Predictive analytics setup</li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-purple-500">✦</span>
+                    <span>ML-ready data preparation</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-purple-500">✦</span>
+                    <span>Custom AI microservices</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-purple-500">✦</span>
+                    <span>Predictive analytics setup</span>
+                  </li>
                 </ul>
               </div>
             </div>
