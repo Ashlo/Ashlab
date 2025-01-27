@@ -169,6 +169,106 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Case Studies Section */}
+        <section id="case-studies" className="py-20 bg-black/30">
+          <div className="max-w-6xl mx-auto px-8">
+            <div className="text-center mb-16">
+              <h2 className={`${caveat.className} text-4xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent`}>
+                Success Stories
+              </h2>
+              <p className="text-xl text-gray-400">
+                Real solutions, real results for innovative startups
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Wearable Analytics Case Study */}
+              <div className="bg-[#1A1A1A] rounded-2xl border border-gray-800 overflow-hidden">
+                <div className="aspect-video relative bg-gradient-to-br from-purple-900/50 to-pink-900/50">
+                  <Image
+                    src="https://images.unsplash.com/photo-1510017803434-a899398421b3?q=80&w=2940&auto=format&fit=crop"
+                    alt="Wearable Analytics Dashboard"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-8">
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className="px-3 py-1 bg-purple-500/10 text-purple-400 rounded-full text-sm">
+                      Health Tech
+                    </span>
+                    <span className="px-3 py-1 bg-pink-500/10 text-pink-400 rounded-full text-sm">
+                      IoT Data
+                    </span>
+                  </div>
+                  <h3 className={`${caveat.className} text-2xl font-semibold mb-4 text-white`}>
+                    Wearable Health Insights Platform
+                  </h3>
+                  <p className="text-gray-400 mb-6">
+                    Built a real-time analytics pipeline processing 10M+ daily health metrics from wearable devices, enabling ML-powered health insights.
+                  </p>
+                  <ul className="space-y-3 text-gray-400">
+                    <li className="flex items-center gap-2">
+                      <span className="text-purple-500">✦</span>
+                      <span>Reduced data processing latency by 90%</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="text-purple-500">✦</span>
+                      <span>Implemented predictive health alerts</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="text-purple-500">✦</span>
+                      <span>HIPAA-compliant data architecture</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* SaaS Analytics Case Study */}
+              <div className="bg-[#1A1A1A] rounded-2xl border border-gray-800 overflow-hidden">
+                <div className="aspect-video relative bg-gradient-to-br from-purple-900/50 to-pink-900/50">
+                  <Image
+                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2940&auto=format&fit=crop"
+                    alt="SaaS Analytics Dashboard"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-8">
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className="px-3 py-1 bg-purple-500/10 text-purple-400 rounded-full text-sm">
+                      SaaS
+                    </span>
+                    <span className="px-3 py-1 bg-pink-500/10 text-pink-400 rounded-full text-sm">
+                      Product Analytics
+                    </span>
+                  </div>
+                  <h3 className={`${caveat.className} text-2xl font-semibold mb-4 text-white`}>
+                    Product Analytics Engine
+                  </h3>
+                  <p className="text-gray-400 mb-6">
+                    Developed a comprehensive analytics suite for a B2B SaaS platform, driving data-informed product decisions.
+                  </p>
+                  <ul className="space-y-3 text-gray-400">
+                    <li className="flex items-center gap-2">
+                      <span className="text-purple-500">✦</span>
+                      <span>Automated reporting saved 20 hrs/week</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="text-purple-500">✦</span>
+                      <span>Increased user retention by 40%</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="text-purple-500">✦</span>
+                      <span>ML-powered churn prediction</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Enhanced Why Choose Us Section */}
         <section className="py-20 bg-black/[.02] dark:bg-white/[.02]">
           <div className="max-w-6xl mx-auto px-8">
