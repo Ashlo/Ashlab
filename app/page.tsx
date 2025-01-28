@@ -3,6 +3,7 @@ import { Caveat } from 'next/font/google';
 import Image from 'next/image';
 import DataArchitectureDiagram from '@/components/DataArchitectureDiagram';
 import TechStackSlider from '@/components/TechStackSlider';
+import AnimatedTerminal from '@/components/AnimatedTerminal';
 
 const caveat = Caveat({ subsets: ['latin'] });
 
@@ -70,7 +71,7 @@ export default function Home() {
             <p className="text-xl sm:text-2xl text-gray-400 font-light max-w-2xl leading-relaxed">
               Build Scalable Data Pipelines, Unlock AI Insights, and Power Your Startup's Growth.
             </p>
-            <DataArchitectureDiagram />
+            <AnimatedTerminal />
           </main>
         </section>
 
