@@ -4,12 +4,13 @@ import Image from 'next/image';
 import DataArchitectureDiagram from '@/components/DataArchitectureDiagram';
 import TechStackSlider from '@/components/TechStackSlider';
 import AnimatedTerminal from '@/components/AnimatedTerminal';
+import ThemeToggle from '@/components/ThemeToggle';
 
 const caveat = Caveat({ subsets: ['latin'] });
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#121212]">
+    <div className="min-h-screen bg-white dark:bg-[#121212]">
       {/* Header */}
       <header className="fixed top-0 w-full z-50 bg-white/80 dark:bg-black/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -31,9 +32,10 @@ export default function Home() {
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-8">
-              <a href="#services" className="hover:text-purple-600 transition-colors">Services</a>
-              <a href="#case-studies" className="hover:text-purple-600 transition-colors">Case Studies</a>
-              <a href="#about" className="hover:text-purple-600 transition-colors">About</a>
+              <a href="#services" className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">Services</a>
+              <a href="#case-studies" className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">Case Studies</a>
+              <a href="#about" className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors">About</a>
+              <ThemeToggle />
               <a 
                 href="#contact"
                 className="rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-2 text-sm font-medium hover:opacity-90 transition-all duration-200"
@@ -43,7 +45,7 @@ export default function Home() {
             </nav>
 
             {/* Mobile Menu Button */}
-            <button className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
+            <button className="md:hidden p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">
               <Menu className="w-6 h-6" />
             </button>
           </div>
@@ -52,26 +54,30 @@ export default function Home() {
         {/* Mobile Navigation - Hidden by default */}
         <div className="md:hidden hidden">
           <div className="px-2 pt-2 pb-3 space-y-1">
-            <a href="#services" className="block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">Services</a>
-            <a href="#case-studies" className="block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">Case Studies</a>
-            <a href="#about" className="block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">About</a>
-            <a href="#contact" className="block px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">Contact</a>
+            <a href="#services" className="block px-3 py-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">Services</a>
+            <a href="#case-studies" className="block px-3 py-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">Case Studies</a>
+            <a href="#about" className="block px-3 py-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">About</a>
+            <a href="#contact" className="block px-3 py-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">Contact</a>
           </div>
         </div>
       </header>
 
       {/* Add margin-top to account for fixed header */}
       <div className="pt-16">
-        {/* Hero Section */}
-        <section className="grid grid-rows-[1fr] items-center justify-items-center p-8 pb-20 gap-16 sm:p-20">
-          <main className="flex flex-col gap-8 items-center max-w-4xl text-center">
+        {/* Hero Section with Grid Background */}
+        <section className="relative grid grid-rows-[1fr] items-center justify-items-center p-8 pb-20 gap-16 sm:p-20">
+          {/* Grid Background */}
+          <div className="absolute inset-0 bg-grid-pattern dark:bg-grid-pattern-dark opacity-[0.08] dark:opacity-[0.02]" />
+          
+          {/* Content */}
+          <main className="relative flex flex-col gap-8 items-center max-w-4xl text-center">
             <h1 className={`${caveat.className} text-5xl sm:text-7xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent`}>
               From Raw Data to Rocket Fuel
             </h1>
-            <p className="text-xl sm:text-2xl text-gray-400 font-light max-w-2xl leading-relaxed">
+            <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-400 font-light max-w-2xl leading-relaxed">
               Build Scalable Data Pipelines, Unlock AI Insights, and Power Your Startup's Growth.
             </p>
-            <p className="text-lg text-purple-400/90 font-medium">
+            <p className="text-lg text-purple-600 dark:text-purple-400 font-medium">
               🚀 Serverless Architecture = Pay Only For What You Use
             </p>
             <AnimatedTerminal />
@@ -87,7 +93,7 @@ export default function Home() {
               </a>
               <a 
                 href="#case-studies"
-                className="rounded-full bg-white/10 text-white px-8 py-3 text-lg font-medium hover:bg-white/20 transition-all duration-200 border border-gray-700"
+                className="rounded-full bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white px-8 py-3 text-lg font-medium hover:bg-gray-200 dark:hover:bg-white/20 transition-all duration-200 border border-gray-200 dark:border-gray-700"
               >
                 View Case Studies
               </a>
@@ -98,60 +104,60 @@ export default function Home() {
         {/* Services Section - Modern cards */}
         <section id="services" className="py-20">
           <div className="max-w-6xl mx-auto px-8">
-            <h2 className={`${caveat.className} text-4xl font-bold mb-12 text-center`}>What We Deliver</h2>
+            <h2 className={`${caveat.className} text-4xl font-bold mb-12 text-center text-gray-900 dark:text-white`}>What We Deliver</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="p-6 bg-white/50 dark:bg-white/[.03] backdrop-blur-sm rounded-2xl border border-gray-100 dark:border-gray-800 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 hover:bg-gradient-to-b hover:from-purple-50 hover:to-pink-50 dark:hover:from-purple-900/20 dark:hover:to-pink-900/20">
+              <div className="p-6 bg-gray-50 dark:bg-white/[.03] backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-gray-800 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 hover:bg-gradient-to-b hover:from-purple-50 hover:to-pink-50 dark:hover:from-purple-900/20 dark:hover:to-pink-900/20">
                 <Database className="w-12 h-12 mb-4 text-purple-600" />
                 <h3 className={`${caveat.className} text-2xl font-semibold mb-4`}>Startup Data Engineering</h3>
-                <ul className="space-y-2">
+                <ul className="space-y-2 text-gray-700 dark:text-gray-300">
                   <li className="flex items-center gap-2">
-                    <span className="text-purple-500">✦</span>
+                    <span className="text-purple-600 dark:text-purple-400">✦</span>
                     <span>Scalable ETL/ELT pipelines</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-purple-500">✦</span>
+                    <span className="text-purple-600 dark:text-purple-400">✦</span>
                     <span>Cost-effective cloud architectures</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-purple-500">✦</span>
+                    <span className="text-purple-600 dark:text-purple-400">✦</span>
                     <span>Automated monitoring & CI/CD</span>
                   </li>
                 </ul>
               </div>
 
-              <div className="p-6 bg-white/50 dark:bg-white/[.03] backdrop-blur-sm rounded-2xl border border-gray-100 dark:border-gray-800 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 hover:bg-gradient-to-b hover:from-purple-50 hover:to-pink-50 dark:hover:from-purple-900/20 dark:hover:to-pink-900/20">
+              <div className="p-6 bg-gray-50 dark:bg-white/[.03] backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-gray-800 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 hover:bg-gradient-to-b hover:from-purple-50 hover:to-pink-50 dark:hover:from-purple-900/20 dark:hover:to-pink-900/20">
                 <BarChart2 className="w-12 h-12 mb-4 text-purple-600" />
                 <h3 className={`${caveat.className} text-2xl font-semibold mb-4`}>Analytics & Decision-Making</h3>
-                <ul className="space-y-2">
+                <ul className="space-y-2 text-gray-700 dark:text-gray-300">
                   <li className="flex items-center gap-2">
-                    <span className="text-purple-500">✦</span>
+                    <span className="text-purple-600 dark:text-purple-400">✦</span>
                     <span>Intuitive schemas for SaaS metrics</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-purple-500">✦</span>
+                    <span className="text-purple-600 dark:text-purple-400">✦</span>
                     <span>Investor-ready dashboards</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-purple-500">✦</span>
+                    <span className="text-purple-600 dark:text-purple-400">✦</span>
                     <span>Financial forecasting models</span>
                   </li>
                 </ul>
               </div>
 
-              <div className="p-6 bg-white/50 dark:bg-white/[.03] backdrop-blur-sm rounded-2xl border border-gray-100 dark:border-gray-800 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 hover:bg-gradient-to-b hover:from-purple-50 hover:to-pink-50 dark:hover:from-purple-900/20 dark:hover:to-pink-900/20">
+              <div className="p-6 bg-gray-50 dark:bg-white/[.03] backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-gray-800 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 hover:bg-gradient-to-b hover:from-purple-50 hover:to-pink-50 dark:hover:from-purple-900/20 dark:hover:to-pink-900/20">
                 <Brain className="w-12 h-12 mb-4 text-purple-600" />
                 <h3 className={`${caveat.className} text-2xl font-semibold mb-4`}>AI Integration</h3>
-                <ul className="space-y-2">
+                <ul className="space-y-2 text-gray-700 dark:text-gray-300">
                   <li className="flex items-center gap-2">
-                    <span className="text-purple-500">✦</span>
+                    <span className="text-purple-600 dark:text-purple-400">✦</span>
                     <span>ML-ready data preparation</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-purple-500">✦</span>
+                    <span className="text-purple-600 dark:text-purple-400">✦</span>
                     <span>Custom AI microservices</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="text-purple-500">✦</span>
+                    <span className="text-purple-600 dark:text-purple-400">✦</span>
                     <span>Predictive analytics setup</span>
                   </li>
                 </ul>
@@ -191,13 +197,13 @@ export default function Home() {
         </section>
 
         {/* Case Studies Section */}
-        <section id="case-studies" className="py-20 bg-black/30">
+        <section id="case-studies" className="py-20 bg-gray-50/50 dark:bg-black/30">
           <div className="max-w-6xl mx-auto px-8">
             <div className="text-center mb-16">
-              <h2 className={`${caveat.className} text-4xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent`}>
+              <h2 className={`${caveat.className} text-4xl font-bold mb-4 text-gray-900 dark:text-white`}>
                 Success Stories
               </h2>
-              <p className="text-xl text-gray-400">
+              <p className="text-xl text-gray-600 dark:text-gray-400">
                 Real solutions, real results for innovative startups
               </p>
             </div>
@@ -291,7 +297,7 @@ export default function Home() {
         </section>
 
         {/* Enhanced Why Choose Us Section */}
-        <section className="py-20 bg-black/[.02] dark:bg-white/[.02]">
+        <section className="py-20 bg-gray-50 dark:bg-black/[.02]">
           <div className="max-w-6xl mx-auto px-8">
             <h2 className={`${caveat.className} text-4xl font-bold mb-16 text-center bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent`}>
               Why Startups Choose Us
@@ -367,7 +373,7 @@ export default function Home() {
         </section>
 
         {/* Tech Stack Section - After Why Choose Us */}
-        <section className="py-20 bg-black/30">
+        <section className="py-20 bg-gray-100/50 dark:bg-black/30">
           <div className="max-w-6xl mx-auto px-8">
             <div className="text-center mb-12">
               <h2 className={`${caveat.className} text-4xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent`}>
@@ -401,13 +407,13 @@ export default function Home() {
         </section>
 
         {/* Footer with consistent styling */}
-        <footer className="border-t border-gray-800 bg-black/50">
+        <footer className="border-t border-gray-200 dark:border-gray-800 bg-white/50 dark:bg-black/50">
           <div className="max-w-6xl mx-auto px-8 py-12">
             <div className="text-center">
-              <p className={`${caveat.className} text-2xl font-semibold mb-2 text-white`}>
+              <p className={`${caveat.className} text-2xl font-semibold mb-2 text-gray-900 dark:text-white`}>
                 Data Engineering for Startups That Mean Business.
               </p>
-              <p className="text-gray-400">
+              <p className="text-gray-600 dark:text-gray-400">
                 Less Chaos. More Clarity. Ready for AI.
               </p>
             </div>
