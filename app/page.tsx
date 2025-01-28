@@ -71,7 +71,27 @@ export default function Home() {
             <p className="text-xl sm:text-2xl text-gray-400 font-light max-w-2xl leading-relaxed">
               Build Scalable Data Pipelines, Unlock AI Insights, and Power Your Startup's Growth.
             </p>
+            <p className="text-lg text-purple-400/90 font-medium">
+              🚀 Serverless Architecture = Pay Only For What You Use
+            </p>
             <AnimatedTerminal />
+            
+            {/* Added CTA buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 mt-8">
+              <a 
+                href="#contact"
+                className="rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-3 text-lg font-medium hover:opacity-90 transition-all duration-200 flex items-center gap-2"
+              >
+                Get Started
+                <ArrowRight className="w-5 h-5" />
+              </a>
+              <a 
+                href="#case-studies"
+                className="rounded-full bg-white/10 text-white px-8 py-3 text-lg font-medium hover:bg-white/20 transition-all duration-200 border border-gray-700"
+              >
+                View Case Studies
+              </a>
+            </div>
           </main>
         </section>
 
