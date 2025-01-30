@@ -1,4 +1,4 @@
-import { ArrowRight, BarChart2, Database, Brain, Menu, Rocket, Code, Zap } from 'lucide-react';
+import { ArrowRight, BarChart2, Database, Brain, Menu, Rocket, Code, Zap, Mail, MapPin, Clock } from 'lucide-react';
 import { Caveat } from 'next/font/google';
 import Image from 'next/image';
 import DataArchitectureDiagram from '@/components/DataArchitectureDiagram';
@@ -403,6 +403,118 @@ export default function Home() {
               Schedule Your Free Consultation
               <ArrowRight className="w-4 h-4" />
             </a>
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <section id="contact" className="py-20 bg-gradient-to-b from-transparent to-gray-50 dark:to-black/30">
+          <div className="max-w-4xl mx-auto px-8">
+            <div className="text-center mb-12">
+              <h2 className={`${caveat.className} text-4xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent`}>
+                Let's Build Something Amazing
+              </h2>
+              <p className="text-xl text-gray-600 dark:text-gray-400">
+                Transform your data infrastructure in weeks, not months
+              </p>
+            </div>
+
+            <div className="bg-white/50 dark:bg-white/[.03] backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-gray-800 p-8 md:p-12 shadow-xl">
+              <form className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* Name Input */}
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      className="w-full px-4 py-3 bg-white dark:bg-black/40 border border-gray-200 dark:border-gray-800 rounded-lg focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-400 focus:border-transparent outline-none transition-all duration-200 text-gray-800 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-600"
+                      placeholder="John Doe"
+                    />
+                  </div>
+
+                  {/* Company Input */}
+                  <div>
+                    <label htmlFor="company" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      Company
+                    </label>
+                    <input
+                      type="text"
+                      id="company"
+                      className="w-full px-4 py-3 bg-white dark:bg-black/40 border border-gray-200 dark:border-gray-800 rounded-lg focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-400 focus:border-transparent outline-none transition-all duration-200 text-gray-800 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-600"
+                      placeholder="Your Company"
+                    />
+                  </div>
+                </div>
+
+                {/* Email Input */}
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    className="w-full px-4 py-3 bg-white dark:bg-black/40 border border-gray-200 dark:border-gray-800 rounded-lg focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-400 focus:border-transparent outline-none transition-all duration-200 text-gray-800 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-600"
+                    placeholder="john@company.com"
+                  />
+                </div>
+
+                {/* Message Input */}
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    Tell us about your data challenges
+                  </label>
+                  <textarea
+                    id="message"
+                    rows={4}
+                    className="w-full px-4 py-3 bg-white dark:bg-black/40 border border-gray-200 dark:border-gray-800 rounded-lg focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-400 focus:border-transparent outline-none transition-all duration-200 text-gray-800 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-600"
+                    placeholder="I need help with..."
+                  ></textarea>
+                </div>
+
+                {/* Submit Button */}
+                <div className="flex justify-end">
+                  <button
+                    type="submit"
+                    className="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:opacity-90 transition-all duration-200 flex items-center gap-2 group"
+                  >
+                    Send Message
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </div>
+              </form>
+
+              {/* Contact Info */}
+              <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  {/* Email */}
+                  <div className="flex items-center gap-3 text-gray-600 dark:text-gray-400">
+                    <div className="p-2 rounded-lg bg-purple-100 dark:bg-purple-900/20">
+                      <Mail className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                    </div>
+                    <span>hello@company.com</span>
+                  </div>
+
+                  {/* Location */}
+                  <div className="flex items-center gap-3 text-gray-600 dark:text-gray-400">
+                    <div className="p-2 rounded-lg bg-purple-100 dark:bg-purple-900/20">
+                      <MapPin className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                    </div>
+                    <span>San Francisco, CA</span>
+                  </div>
+
+                  {/* Response Time */}
+                  <div className="flex items-center gap-3 text-gray-600 dark:text-gray-400">
+                    <div className="p-2 rounded-lg bg-purple-100 dark:bg-purple-900/20">
+                      <Clock className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                    </div>
+                    <span>Response within 24h</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
