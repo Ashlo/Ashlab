@@ -1,10 +1,41 @@
-import { ArrowRight, BarChart2, Database, Brain, Menu, Calendar, Phone, Circle, Cog } from 'lucide-react';
+import { ArrowRight, BarChart2, Database, Brain, Menu, Calendar, Phone, Circle, Cog, ChevronDown, Code } from 'lucide-react';
 import { Caveat } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
 import ThemeToggle from '@/components/ThemeToggle';
+import FaqItem from '@/components/FaqItem';
 
 const caveat = Caveat({ subsets: ['latin'] });
+
+// Define types
+interface FaqItem {
+  q: string;
+  a: string;
+}
+
+// FAQ data
+const faqs: FaqItem[] = [
+  {
+    q: "How long does implementation typically take?",
+    a: "Implementation time varies based on your data complexity and sources. Typically, we can get your first pipeline running within 2-4 weeks."
+  },
+  {
+    q: "Can you handle real-time data processing?",
+    a: "Yes, our Pro and Enterprise plans support real-time data processing with sub-second latency using modern streaming technologies."
+  },
+  {
+    q: "Do you support on-premise deployment?",
+    a: "Yes, Enterprise customers can opt for on-premise deployment with full support for their security requirements."
+  },
+  {
+    q: "What kind of support do you provide?",
+    a: "We offer email support for Starter, Slack support for Pro, and dedicated support teams for Enterprise customers."
+  },
+  {
+    q: "Can I migrate from my existing data stack?",
+    a: "Yes, we have experience migrating from various data stacks and will provide a detailed migration plan to ensure smooth transition."
+  }
+] as const;
 
 export default function Home() {
   return (
@@ -71,7 +102,7 @@ export default function Home() {
             {/* Main Content - Takes up 2 columns */}
             <div className="md:col-span-2">
               <h1 className="font-display text-6xl sm:text-7xl lg:text-8xl font-bold text-gray-900 leading-[1.1] mb-8">
-                Data Engineering as a Service for Indie Founders
+                Data Engineering as a Service for Startups
               </h1>
               
               <p className="text-xl sm:text-2xl text-gray-600 font-light mb-6 max-w-2xl">
@@ -190,6 +221,181 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Reality vs Expectations Section - Now directly below Hero */}
+        <section className="py-20 bg-white">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <p className="text-lg text-gray-600 mb-4">The unfortunate truth is...</p>
+              <h2 className="font-display text-5xl sm:text-6xl font-bold text-gray-900 mb-4">
+                Building is the <span className="text-green-500 underline decoration-green-500/30 decoration-4 underline-offset-4">easy part</span>
+              </h2>
+            </div>
+
+            <div className="grid gap-12">
+              {/* Expectations Card */}
+              <div className="bg-green-50/50 rounded-3xl p-8 border border-green-100">
+                <h3 className="text-xl font-semibold text-gray-900 mb-6">What you expected:</h3>
+                <div className="space-y-4">
+                  {[
+                    'One-time setup of data pipelines',
+                    'Data quality issues will fix themselves',
+                    'ETL scripts will run forever without maintenance',
+                    'AI/ML implementation is straightforward',
+                    'Stakeholders know exactly what data they need'
+                  ].map((text, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <div className="mt-1">
+                        <svg className="w-5 h-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <span className="text-gray-700">{text}</span>
+                    </div>
+                  ))}
+                </div>
+                {/* Improved upward trending line */}
+                <div className="mt-8 h-16 relative overflow-hidden">
+                  <svg className="w-full h-full" viewBox="0 0 200 50" preserveAspectRatio="none">
+                    <path
+                      d="M0,35 C50,35 50,25 100,25 C150,25 150,15 200,15"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      className="text-green-500"
+                      pathLength="1"
+                    >
+                      <animate
+                        attributeName="stroke-dashoffset"
+                        from="1"
+                        to="0"
+                        dur="2s"
+                        fill="freeze"
+                      />
+                    </path>
+                  </svg>
+                </div>
+              </div>
+
+              {/* Reality Card */}
+              <div className="bg-red-50/50 rounded-3xl p-8 border border-red-100">
+                <h3 className="text-xl font-semibold text-gray-900 mb-6">The reality:</h3>
+                <div className="space-y-4">
+                  {[
+                    'Constant monitoring and pipeline maintenance needed',
+                    'Data quality requires robust validation frameworks',
+                    'Source systems change without warning',
+                    'ML models need continuous retraining and monitoring',
+                    'Requirements evolve as business understanding grows'
+                  ].map((text, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <div className="mt-1">
+                        <svg className="w-5 h-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                      </div>
+                      <span className="text-gray-700">{text}</span>
+                    </div>
+                  ))}
+                </div>
+                {/* Improved downward trending line */}
+                <div className="mt-8 h-16 relative overflow-hidden">
+                  <svg className="w-full h-full" viewBox="0 0 200 50" preserveAspectRatio="none">
+                    <path
+                      d="M0,15 C40,15 60,35 100,25 C140,15 160,35 200,25"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      className="text-red-500"
+                      pathLength="1"
+                    >
+                      <animate
+                        attributeName="stroke-dashoffset"
+                        from="1"
+                        to="0"
+                        dur="2s"
+                        fill="freeze"
+                      />
+                    </path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Why Choose Us Section */}
+        <section className="py-20 bg-white">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="font-display text-5xl sm:text-6xl font-bold text-gray-900 mb-16">
+              Why founders choose <span className="text-green-500">Ashlab Solutions</span>
+            </h2>
+
+            <div className="space-y-20">
+              {/* Remove Data Engineering Complexity */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="p-3 bg-green-100/50 rounded-xl">
+                    <Database className="w-8 h-8 text-green-600" />
+                  </div>
+                  <h3 className="text-2xl font-semibold text-gray-900">
+                    We remove <span className="px-4 py-1 bg-green-100/50 text-green-700 rounded-full">Data Engineering</span> from your to-do list
+                  </h3>
+                </div>
+                <p className="text-lg text-gray-600 max-w-3xl">
+                  We are not "data consultants" who leave you with complex architectures and templates that never work. 
+                  This is a done-for-you service - we build and maintain your entire data infrastructure.
+                </p>
+              </div>
+
+              {/* Results Guarantee */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="p-3 bg-green-100/50 rounded-xl">
+                    <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-semibold text-gray-900">
+                    We <span className="px-4 py-1 bg-gray-900 text-white rounded-full">GUARANTEE</span> results
+                  </h3>
+                </div>
+                <p className="text-lg text-gray-600 max-w-3xl">
+                  We believe in what we do. And we are not afraid to put our money where our mouth is. 
+                  Every single engagement is backed by a results guarantee. If we don't deliver, you don't pay.
+                </p>
+              </div>
+
+              {/* Built by Technical Founders */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="p-3 bg-green-100/50 rounded-xl">
+                    <Code className="w-8 h-8 text-green-600" />
+                  </div>
+                  <h3 className="text-2xl font-semibold text-gray-900">
+                    Built for technical founders. By technical founders.
+                  </h3>
+                </div>
+                <p className="text-lg text-gray-600 max-w-3xl">
+                  We skip the consulting fluff and focus on what matters: scalable architectures, 
+                  measurable SLAs, and data-driven solutions. For you that means: low touch, 
+                  high impact, and certainly no unnecessary meetings.
+                </p>
+              </div>
+            </div>
+
+            {/* CTA Button */}
+            <div className="mt-16">
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 px-8 py-4 text-lg font-medium text-white bg-green-500 hover:bg-green-600 rounded-full transition-all duration-200"
+              >
+                Get Started
+                <ArrowRight className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* Services Section - white background */}
         <section id="services" className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -273,7 +479,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Case Studies Section - subtle gray background */}
+        {/* Case Studies Section */}
         <section id="case-studies" className="py-20 bg-gray-50/30">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header */}
@@ -287,17 +493,16 @@ export default function Home() {
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Case Study Card 1 */}
-              <div className="bg-white dark:bg-white/5 rounded-3xl overflow-hidden border border-gray-100 dark:border-accent/10">
-                <div className="aspect-video relative bg-gradient-to-br from-green-500/20 to-blue-500/20">
-                  <Image
-                    src="/case-study-1.jpg"
-                    alt="Case Study"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-8">
+              {/* Case Study 1 */}
+              <div className="group relative overflow-hidden rounded-3xl">
+                <Image
+                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80"
+                  alt="Data Analytics Dashboard"
+                  width={800}
+                  height={600}
+                  className="object-cover w-full h-[400px] transform group-hover:scale-105 transition-transform duration-200"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-gray-900/20 p-8 flex flex-col justify-end">
                   <div className="flex gap-2 mb-4">
                     <span className="px-3 py-1 bg-green-500/10 text-green-600 dark:text-green-400 rounded-full text-sm">
                       HealthTech
@@ -316,17 +521,16 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Case Study Card 2 */}
-              <div className="bg-white dark:bg-white/5 rounded-3xl overflow-hidden border border-gray-100 dark:border-accent/10">
-                <div className="aspect-video relative bg-gradient-to-br from-green-500/20 to-blue-500/20">
-                  <Image
-                    src="/case-study-2.jpg"
-                    alt="Case Study"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-8">
+              {/* Case Study 2 */}
+              <div className="group relative overflow-hidden rounded-3xl">
+                <Image
+                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80"
+                  alt="Data Pipeline Architecture"
+                  width={800}
+                  height={600}
+                  className="object-cover w-full h-[400px] transform group-hover:scale-105 transition-transform duration-200"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-gray-900/20 p-8 flex flex-col justify-end">
                   <div className="flex gap-2 mb-4">
                     <span className="px-3 py-1 bg-green-500/10 text-green-600 dark:text-green-400 rounded-full text-sm">
                       SaaS
@@ -451,105 +655,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Pricing/Path Section */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Section Header */}
-            <div className="text-center mb-16">
-              <span className="text-blue-500 font-medium mb-4 block">
-                BUILD FASTER, VALIDATE SOONER
-              </span>
-              <h2 className="font-display text-5xl sm:text-6xl font-bold text-gray-900 mb-8">
-                Choose Your Path
-              </h2>
-            </div>
-
-            {/* Pricing Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Quick Launch Card */}
-              <div className="bg-white rounded-3xl p-8 border border-gray-100 hover:shadow-xl transition-all duration-200">
-                <div className="mb-8">
-                  <span className="text-sm font-medium text-gray-500 uppercase tracking-wide">
-                    QUICK LAUNCH
-                  </span>
-                  <h3 className="font-display text-2xl font-bold text-gray-900 mt-2">
-                    MVP Launch Package
-                  </h3>
-                </div>
-                
-                <p className="text-gray-600 mb-4">
-                  Launch your idea in weeks, not months.
-                </p>
-                <p className="text-gray-600 mb-8">
-                  Fully functional MVP with essential features to validate your market and start getting real users.
-                </p>
-
-                <a 
-                  href="#start-building"
-                  className="inline-flex items-center justify-center gap-2 w-full px-6 py-3 text-gray-900 bg-white border-2 border-gray-900 rounded-full hover:bg-gray-50 transition-all duration-200 font-medium"
-                >
-                  Start Building
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-              </div>
-
-              {/* Full Solution Card */}
-              <div className="bg-white rounded-3xl p-8 border border-gray-100 hover:shadow-xl transition-all duration-200">
-                <div className="mb-8">
-                  <span className="text-sm font-medium text-gray-500 uppercase tracking-wide">
-                    FULL SOLUTION
-                  </span>
-                  <h3 className="font-display text-2xl font-bold text-gray-900 mt-2">
-                    Full Startup Build
-                  </h3>
-                </div>
-                
-                <p className="text-gray-600 mb-4">
-                  Perfect for indie hackers ready to build their next big thing.
-                </p>
-                <p className="text-gray-600 mb-8">
-                  We'll work closely with you to create a polished product that's ready for early adopters and future scale.
-                </p>
-
-                <a 
-                  href="#lets-talk"
-                  className="inline-flex items-center justify-center gap-2 w-full px-6 py-3 text-white bg-blue-500 rounded-full hover:bg-blue-600 transition-all duration-200 font-medium"
-                >
-                  Let's talk
-                  <Calendar className="w-4 h-4" />
-                </a>
-              </div>
-
-              {/* Strategy Card */}
-              <div className="bg-white rounded-3xl p-8 border border-gray-100 hover:shadow-xl transition-all duration-200">
-                <div className="mb-8">
-                  <span className="text-sm font-medium text-gray-500 uppercase tracking-wide">
-                    STRATEGY
-                  </span>
-                  <h3 className="font-display text-2xl font-bold text-gray-900 mt-2">
-                    Consulting & Mentoring
-                  </h3>
-                </div>
-                
-                <p className="text-gray-600 mb-4">
-                  Not sure where to start? Let's map out your technical roadmap.
-                </p>
-                <p className="text-gray-600 mb-8">
-                  Get expert guidance on architecture, tech stack, and development strategy for your startup.
-                </p>
-
-                <a 
-                  href="#book-call"
-                  className="inline-flex items-center justify-center gap-2 w-full px-6 py-3 text-gray-900 bg-white border-2 border-gray-900 rounded-full hover:bg-gray-50 transition-all duration-200 font-medium"
-                >
-                  Book a call
-                  <Phone className="w-4 h-4" />
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Process Section */}
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -630,6 +735,155 @@ export default function Home() {
                 </svg>
               </div>
               {/* Add more arrows between other steps if desired */}
+            </div>
+          </div>
+        </section>
+
+        {/* Pricing Section */}
+        <section id="pricing" className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <div className="flex items-center justify-center gap-2 mb-4">
+                <div className="h-2 w-2 rounded-full bg-green-500"></div>
+                <span className="text-sm text-gray-500">PRICING</span>
+              </div>
+              <h2 className="font-display text-5xl sm:text-6xl font-bold text-gray-900 mb-4">
+                Simple, transparent pricing
+              </h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                Everything you need to build and scale your data infrastructure
+              </p>
+            </div>
+
+            {/* Pricing Cards */}
+            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+              {/* Starter Plan */}
+              <div className="bg-white rounded-3xl p-8 border border-gray-100 hover:border-green-500/20 hover:shadow-xl hover:shadow-green-500/5 transition-all duration-200">
+                <div className="mb-8">
+                  <h3 className="font-display text-2xl font-bold text-gray-900 mb-2">
+                    Starter
+                  </h3>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-4xl font-bold text-gray-900">$2,999</span>
+                    <span className="text-gray-500">/month</span>
+                  </div>
+                </div>
+
+                <ul className="space-y-4 mb-8">
+                  {[
+                    'Up to 5 data sources',
+                    'Basic data transformations',
+                    'Automated data quality checks',
+                    'Daily batch processing',
+                    'Email support'
+                  ].map((feature, i) => (
+                    <li key={i} className="flex items-center gap-3">
+                      <svg className="w-5 h-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-gray-600">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <button className="w-full px-6 py-3 text-gray-900 bg-gray-50 rounded-full hover:bg-gray-100 transition-colors duration-200 font-medium">
+                  Get Started
+                </button>
+              </div>
+
+              {/* Pro Plan - Featured */}
+              <div className="bg-gradient-to-b from-gray-900 to-gray-800 rounded-3xl p-8 border border-gray-800 transform hover:scale-105 transition-all duration-200 relative">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-green-500 rounded-full text-white text-sm font-medium">
+                  Most Popular
+                </div>
+                
+                <div className="mb-8">
+                  <h3 className="font-display text-2xl font-bold text-white mb-2">
+                    Pro
+                  </h3>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-4xl font-bold text-white">$5,999</span>
+                    <span className="text-gray-400">/month</span>
+                  </div>
+                </div>
+
+                <ul className="space-y-4 mb-8">
+                  {[
+                    'Up to 15 data sources',
+                    'Advanced transformations',
+                    'Custom data quality rules',
+                    'Real-time processing',
+                    'Slack support',
+                    'Custom dashboards',
+                    'Data lineage tracking'
+                  ].map((feature, i) => (
+                    <li key={i} className="flex items-center gap-3">
+                      <svg className="w-5 h-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-gray-300">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <button className="w-full px-6 py-3 text-white bg-green-500 rounded-full hover:bg-green-600 transition-colors duration-200 font-medium">
+                  Get Started
+                </button>
+              </div>
+
+              {/* Enterprise Plan */}
+              <div className="bg-white rounded-3xl p-8 border border-gray-100 hover:border-green-500/20 hover:shadow-xl hover:shadow-green-500/5 transition-all duration-200">
+                <div className="mb-8">
+                  <h3 className="font-display text-2xl font-bold text-gray-900 mb-2">
+                    Enterprise
+                  </h3>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-4xl font-bold text-gray-900">Custom</span>
+                  </div>
+                </div>
+
+                <ul className="space-y-4 mb-8">
+                  {[
+                    'Unlimited data sources',
+                    'Custom ML models',
+                    'Enterprise security',
+                    'Dedicated support team',
+                    'Custom SLAs',
+                    'On-premise deployment',
+                    'Training & workshops'
+                  ].map((feature, i) => (
+                    <li key={i} className="flex items-center gap-3">
+                      <svg className="w-5 h-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-gray-600">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <button className="w-full px-6 py-3 text-gray-900 bg-gray-50 rounded-full hover:bg-gray-100 transition-colors duration-200 font-medium">
+                  Contact Sales
+                </button>
+              </div>
+            </div>
+
+            {/* FAQ Section */}
+            <div className="mt-32">
+              <div className="text-center mb-16">
+                <div className="flex items-center justify-center gap-2 mb-4">
+                  <div className="h-2 w-2 rounded-full bg-green-500"></div>
+                  <span className="text-sm text-gray-500">FAQ</span>
+                </div>
+                <h2 className="font-display text-4xl font-bold text-gray-900 mb-4">
+                  Frequently Asked Questions
+                </h2>
+              </div>
+
+              <div className="max-w-3xl mx-auto grid gap-4">
+                {faqs.map((faq: FaqItem, i: number) => (
+                  <FaqItem key={i} question={faq.q} answer={faq.a} />
+                ))}
+              </div>
             </div>
           </div>
         </section>
