@@ -10,8 +10,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        primary: '#1a3300',
+        accent: '#ffe95c',
+      },
+      fontFamily: {
+        sans: ['var(--font-inter)', 'system-ui'],
+        display: ['var(--font-bricolage)', 'system-ui'],
       },
     },
   },
